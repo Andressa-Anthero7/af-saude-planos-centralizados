@@ -19,7 +19,7 @@ media/
 # Virtualenv
 dev-a-venv/
 .env/
-manage.py
+
 
 # IDEs
 .vscode/
