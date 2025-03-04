@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrossel 3D</title>
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style-index.css">
+    <link rel="stylesheet" type="text/css" href="css/style-counter.css">
+
+    <!-- FONTAWESOME -->
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- SCRIPT JAVASCRIPT -->
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/counter.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo.webp"  width="80" height="80">
+            </a>
+    </nav>
+
+    <!-- HEADER -->
+    <section >
+        <div class="header">
+            <h1>AF Sáude</h1>
+            <h2>Encontramos a mehor opção em Planos de Saúde para sua familia ou empresa</h2>
+        </div>
+        <div class="counter">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number" data-value="50">0</span>
+                    <span class="stat-label">Cidades Atendidas</span>
+                </div> 
+                <div class="stat-item">
+                    <span class="stat-number" data-value="1200">0</span>
+                    <span class="stat-label">Clientes Atendidos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-value="10">0</span>
+                    <span class="stat-label">Anos de Experiência</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- CARROUSSEL 3D -->
+    <section id="carousel3d" class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item" style="--i:0;"><img src="img/img-carroussel-flutuante-1.png" alt="Imagem 1"></div>
+            <div class="carousel-item" style="--i:1;"><img src="img/img-carroussel-flutuante-2.png" alt="Imagem 2"></div>
+            <div class="carousel-item" style="--i:2;"><img src="img/img-carroussel-flutuante-1.png"></div>
+            <div class="carousel-item" style="--i:3;"><img src="img/img-carroussel-flutuante-2.png"></div>
+            <div class="carousel-item" style="--i:4;"><img src="img/img-carroussel-flutuante-1.png"></div>
+            <div class="carousel-item" style="--i:5;"><img src="img/img-carroussel-flutuante-2.png"></div>
+        </div>
+        <button class="prev" onclick="rotateCarousel(-1)">&#10094;</button>
+        <button class="next" onclick="rotateCarousel(1)">&#10095;</button>
+    </section>
+
+    <!-- FORMULÁRIO -->
+    <section>
+        <div class="form">
+            <form method="POST" >
+                    <h1>Preencha o formulário e garanta as melhores opções de planos de saúde direto no seu celular</h1>
+                    <div class="form-field ">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-field">
+                        <label for="nome">Whatsapp</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <!-- Checkbox Aceitação de Termos -->
+                    <div class="form-field ">
+                        <label for="aceito-termos">
+                            <input type="checkbox" id="aceito-termos" name="aceito_termos" disabled>
+                            
+                                <small class="text-center text-dark">*Obrigatório - </small>
+                                <small class="text-center text-dark text-justify">Ao enviar este formulário, você concorda com o tratamento dos seus dados pessoais nos termos da Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018) e conforme nossa Política de Privacidade. Utilizamos suas informações para entrar em contato e oferecer nossos serviços. Seus dados serão mantidos em sigilo e não serão compartilhados com terceiros sem sua autorização. Você pode solicitar a exclusão dos seus dados a qualquer momento.</small>
+                            
+                            
+                        </label>
+                        <br>
+                    </div>
+                    <!-- BTN FORM -->
+                    <div class="form-field">
+                        <button>Garanta sua cotação personalizada</button>
+                    </div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        let currentIndex = 0;
+        const totalItems = 6;
+        const items = document.querySelectorAll('.carousel-item');
+        cons form = document.querySelectorAll('.form');
+        
+        function updateActiveItem() {
+            items.forEach((item, index) => {
+                item.classList.remove('active');
+                if (index === currentIndex) {
+                    item.classList.add('active');
+                }
+                let rotation = ((index - currentIndex + totalItems) % totalItems) * 60;
+                item.style.transform = `rotateY(${rotation}deg) translateZ(200px)`;
+            });
+        }
+
+        function rotateCarousel(direction) {
+            currentIndex = (currentIndex + direction + totalItems) % totalItems;
+            updateActiveItem();
+        }
+        
+        function autoRotate() {
+            rotateCarousel(1);
+        }
+
+        function showForm(){
+            form.classList.remove('')
+        }
+        
+        setInterval(autoRotate, 3000);
+        updateActiveItem();
+    </script>
+</body>
+</html>

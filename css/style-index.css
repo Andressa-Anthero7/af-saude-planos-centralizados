@@ -1,0 +1,275 @@
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
+
+
+body{
+   font-family: 'Quicksand', sans-serif;
+   background: gold;
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+   
+   
+}
+
+html{
+    overflow-x: hidden;
+}
+
+
+.header{
+   color: #1c2b48;
+   font-weight: 800;
+
+}
+
+
+
+.header h1{
+    font-size: 3em;
+     position: relative;
+   top: -1em;
+    
+}
+
+.header h2{
+    font-size: 2em;
+    position: relative;
+   top: -3em;
+   
+}
+
+/* NAV */
+nav{
+   position: relative;
+   top: -0.5em;
+   left: -2em; 
+   background: #1c2b48;
+   min-width: 105%;
+}
+
+.navbar{
+    
+}
+
+.navbar-brand{
+    position: relative;
+    left: 3em;
+}
+
+
+.form{
+    display: block;
+    max-width: 100%;
+    text-align: left;
+    margin-bottom: 15px;
+    background: white;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    margin-right: 25%;
+    margin-left: 25%;
+    margin-top: 0;
+    border-radius: 2%;
+    position: relative;
+    top: -5em;
+    
+}
+
+.form h1{
+    position: relative;
+    top: -2em;
+}
+
+.form-field{
+    margin-bottom: 2em;
+    position: relative;
+    top: -2em;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+}
+
+#aceito-termos {
+    margin-right: 5px;
+}
+
+small {
+    display: inline;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #555;
+}
+
+
+.carousel-container {
+    position: relative;
+    top:-5em;
+    width: 100%;
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+
+}
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    transform-style: preserve-3d;
+    transition: transform 1s ease-in-out;
+    margin: auto;
+
+}
+.carousel-item {
+    position: absolute;
+    top: 1em;
+    width: 120%;
+    max-width: 180px;
+    height: 120px;
+    background: #fff;
+    transform: rotateY(calc(var(--i) * 60deg)) translateZ(200px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    transition: transform 1s ease, opacity 0.5s ease;
+    opacity: 0.5;
+}
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.carousel-item.active {
+    transform: rotateY(0deg) translateZ(220px) scale(2);
+    opacity: 1;
+}
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    z-index: 100;
+    font-size: 14px;
+    border-radius: 5px;
+}
+.prev { left: 5px; }
+.next { right: 5px; }
+
+@media(max-width: 375.99px){
+    nav{
+        min-width: 115%;
+    }
+
+    .carousel-container {
+        max-height: 180px;
+        border: 1px solid green;
+        max-width: 100%;
+    }
+
+    .carousel {
+        max-width: 40%;
+        height: 140px; 
+        position: relative;
+        left: -0.5em;
+    }
+
+
+    .form{
+        display: block;
+        width: 80%;
+        background: white;
+        border-radius: 2%;
+        position: relative;
+        top: 2em;
+        left: -25%;
+        padding-top: 5em; 
+    }
+
+    
+}
+
+
+
+@media(min-width: 376px) and (max-width: 600px) {
+    nav{
+        min-width: 110%;
+    }
+
+    .carousel-container {
+        max-height: 160px;
+        max-width: 100%;
+        position: relative;
+        top: -5.5em;
+        border: 1px solid red;
+    }
+
+    .carousel {
+        max-width: 40%;
+        height: 140px; 
+    }
+
+    .carousel-item {
+        width: 130%;
+        
+        height: 100px;
+        transform: rotateY(calc(var(--i) * 60deg)) translateZ(180px);
+    }
+    .carousel-item.active {
+        transform: rotateY(0deg) translateZ(180px) scale(3);  
+    } 
+
+    .form{
+        display: block;
+        width: 80%;
+        background: white;
+        border-radius: 2%;
+        position: relative;
+        top: -5em;
+        left: -25%;
+        padding-top: 5em; 
+    }
+}
+
+@media (min-width: 600.01px) {
+    .carousel {
+        max-width: 250px;
+        height: 140px;
+        position: relative;
+        left: 2em;
+        top: -2em;
+    }
+
+    .carousel-item {
+        width: 100%;
+        max-width: 200px;
+        height: 150px;
+        transform: rotateY(calc(var(--i) * 60deg)) translateZ(200px);
+    }
+
+    .carousel-item.active {
+        transform: rotateY(0deg) translateZ(180px) scale(3);
+        
+       
+    } 
+}
