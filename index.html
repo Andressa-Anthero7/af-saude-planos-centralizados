@@ -18,9 +18,9 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-            <a class="navbar-brand" href="#">
-                <img src="img/logo.webp"  width="80" height="80">
-            </a>
+        <a class="navbar-brand" href="#">
+            <img src="img/logo.webp"  width="80" height="80">
+        </a>
     </nav>
 
     <!-- HEADER -->
@@ -95,10 +95,13 @@
     </section>
 
     <script>
+        $(document).ready(function() {
+            alert('carregou')
+        });
         let currentIndex = 0;
         const totalItems = 6;
         const items = document.querySelectorAll('.carousel-item');
-        cons form = document.querySelectorAll('.form');
+        
         
         function updateActiveItem() {
             items.forEach((item, index) => {
@@ -120,9 +123,6 @@
             rotateCarousel(1);
         }
 
-        function showForm(){
-            form.classList.remove('')
-        }
         
         setInterval(autoRotate, 3000);
         updateActiveItem();
