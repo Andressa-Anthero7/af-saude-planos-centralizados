@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    
     // Navbar scroll effect
     $(window).scroll(function() {
         if ($(this).scrollTop() > 50) {
@@ -37,14 +38,9 @@ $(document).ready(function() {
         });
     }
 
-    // Trigger stats animation when section is in viewport
-    var statsAnimated = false;
-    $(window).scroll(function() {
-        if (!statsAnimated && isElementInViewport($('.stats-container'))) {
-            animateStats();
-            statsAnimated = true;
-        }
-    });
+    
+    animateStats();
+   
 
     // Contact form handling
     $('#contactForm').on('submit', function(e) {

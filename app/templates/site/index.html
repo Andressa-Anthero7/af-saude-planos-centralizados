@@ -4,179 +4,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antherus - Marketing Digital</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>AF Saúde</title>
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style-index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style-counter.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style-btn-wa.css' %}">
+
+    <!-- FontAwesome 5 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- SCRIPT JAVASCRIPT -->
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/counter.js' %}"></script>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Antherus</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" style="font-weight: bold;color: aqua;" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services" style="font-weight: bold;color: aqua;" >Serviços</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about" style="font-weight: bold;color: aqua;">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact" style="font-weight: bold;color: aqua;">Contato</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'img/logo.webp' %}"  width="100" height="100">
+        </a>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1>Transforme seu Negócio Digital</h1>
-                    <p>Soluções completas em marketing digital para impulsionar seus resultados</p>
-                    <a href="#contact" class="btn btn-primary btn-lg">Fale Conosco</a>
+    <!-- HEADER -->
+    <section >
+        <div class="header">
+            <h1>AF Saúde</h1>
+            <h2>Encontramos a mehor opção em Planos de Saúde para sua familia ou empresa</h2>
+        </div>
+        <div class="counter">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <i class="fas fa-plus"></i>
+                    <span class="stat-number" data-value="50">0</span>
+                    <span class="stat-label">Cidades Atendidas</span>
+                </div> 
+                <div class="stat-item">
+                    <i class="fas fa-plus"></i>
+                    <span class="stat-number" data-value="1200">0</span>
+                    <span class="stat-label">Clientes Atendidos</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-plus"></i>
+                    <span class="stat-number" data-value="10">0</span>
+                    <span class="stat-label">Anos de Experiência</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="text-center mb-5">Nossos Serviços</h2>
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="service-card">
-                        <i class="fab fa-google"></i>
-                        <h3>Google Ads</h3>
-                        <p>Campanhas otimizadas para maximizar seu ROI e alcançar seu público-alvo ideal.</p>
-                        <ul>
-                            <li>Pesquisa e Display</li>
-                            <li>Remarketing</li>
-                            <li>Shopping</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="service-card">
-                        <i class="fab fa-facebook"></i>
-                        <h3>Facebook Ads</h3>
-                        <p>Anúncios estratégicos para engajar seu público e aumentar suas conversões.</p>
-                        <ul>
-                            <li>Campanhas Personalizadas</li>
-                            <li>Públicos Segmentados</li>
-                            <li>Instagram Ads</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="service-card">
-                        <i class="fas fa-laptop-code"></i>
-                        <h3>Landing Pages</h3>
-                        <p>Páginas otimizadas para converter visitantes em clientes.</p>
-                        <ul>
-                            <li>Design Responsivo</li>
-                            <li>Alta Conversão</li>
-                            <li>Otimização SEO</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+     <!-- CARROUSSEL 3D -->
+    <section id="carousel3d" class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item" style="--i:0;"><img src="{% static 'img/img-carroussel-flutuante-1.png' %}" alt="Imagem 1"></div>
+            <div class="carousel-item" style="--i:1;"><img src="{% static 'img/img-carroussel-flutuante-2.png' %}" alt="Imagem 2"></div>
+            <div class="carousel-item" style="--i:2;"><img src="{% static 'img/img-carroussel-flutuante-1.png' %}" alt="Imagem 3"></div>
+            <div class="carousel-item" style="--i:3;"><img src="{% static 'img/img-carroussel-flutuante-2.png' %}" alt="Imagem 4"></div>
+            <div class="carousel-item" style="--i:4;"><img src="{% static 'img/img-carroussel-flutuante-1.png' %}" alt="Imagem 5"></div>
+            <div class="carousel-item" style="--i:5;"><img src="{% static 'img/img-carroussel-flutuante-2.png' %}" alt="Imagem 6"></div>
         </div>
+        <button class="prev" onclick="rotateCarousel(-1)">&#10094;</button>
+        <button class="next" onclick="rotateCarousel(1)">&#10095;</button>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h2>Sobre a Antherus</h2>
-                    <p>Somos especialistas em marketing digital, focados em entregar resultados reais para nossos clientes. Nossa equipe combina criatividade e estratégia para impulsionar seu negócio.</p>
-                </div>
-                <div class="col-lg-6">
-                    <div class="stats-container">
-                        <!-- <div class="stat-item">
-                            <span class="stat-number" data-value="500">0</span>+
-                            <span class="stat-label">Clientes Atendidos</span>
-                        </div> -->
-                        <div class="stat-item">
-                            <span class="stat-number" data-value="500">0</span>+
-                            <span class="stat-label">Campanhas Realizadas</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-value="95">0</span>%
-                            <span class="stat-label">Clientes Satisfeitos</span>
-                        </div>
+    <!-- FORMULÁRIO -->
+    <section>
+        <div class="form">
+            <h1>Preencha o formulário e garanta as melhores opções de planos de saúde direto no seu celular</h1>
+            <form method="POST" >
+                    <!-- CSRF_TOKEN -->
+                    <div class="form-field ">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" class="form-control">
+                        <small id="msg-erro-nome"></small>
                     </div>
-                </div>
-            </div>
+                    <div class="form-field">
+                        <label for="whatsapp">Whatsapp</label>
+                        <input type="text" id="whatsapp" class="form-control">
+                        <small id="msg-erro-whatsapp">mensagem de erro</small>
+                    </div>
+                    <!-- Checkbox Aceitação de Termos -->
+                    <div class="form-field ">
+                        <label for="aceito-termos">
+                            <input type="checkbox" id="aceito-termos" name="aceito_termos" maxlength="12" disabled>
+                            <small class="text-center text-dark">*Obrigatório - </small>
+                            <small class="text-center text-dark text-justify">Ao enviar este formulário, você concorda com o tratamento dos seus dados pessoais nos termos da Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018) e conforme nossa Política de Privacidade. Utilizamos suas informações para entrar em contato e oferecer nossos serviços. Seus dados serão mantidos em sigilo e não serão compartilhados com terceiros sem sua autorização. Você pode solicitar a exclusão dos seus dados a qualquer momento.</small>
+                        </label>
+                        <br>
+                        <!-- Script do formulário -->
+                        <script type="text/javascript" src="{% static 'js/script-form.js' %}"></script>
+                    </div>
+                    <!-- BTN FORM -->
+                    <div class="form-field btn-enviar-container">
+                        <button class="btn-custom">Garanta sua cotação personalizada</button>
+                    </div>
+            </form>
         </div>
     </section>
+    <script type="text/javascript" src="{% static 'js/script-carousel.js' %}"></script>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="text-center mb-5">Entre em Contato</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <form id="contactForm">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Nome" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Email" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="tel" class="form-control" placeholder="Telefone">
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" rows="5" placeholder="Mensagem" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-                    </form>
+    <!-- TEXTO PERSUASSIVO -->
+    <section>
+        <div id="descricao">
+            <div class="componente-descricao" >
+                <h1>Mais de 10 anos de experiência conectando você ao plano de saúde ideal!!</h1>
+                <p>A AF Saúde, já ajudamos mais de 1.000 clientes em todo o Brasil – desde famílias que buscam proteção e tranquilidade até pequenas e grandes empresas que querem oferecer o melhor benefício aos seus colaboradores.<br>Com nossa assessoria especializada, analisamos suas necessidades e encontramos o plano de saúde perfeito para você, garantindo custo-benefício, qualidade e segurança.<br>Preencha o formulário agora e conte com a nossa experiência para te guiar nessa escolha! 🚀💙</p>
+            </div>
+            <!-- IMG DO AVATAR -->
+            <div>
+                <img class="img-descricao" src="{% static 'img/modelo-medica-v4.png' %}" alt="Avatar">
+                <!-- BTN FORM -->
+                <div class="form-field btn-enviar-container">
+                    <a href="#form" class="btn-custom">Garanta sua cotação personalizada</a>
                 </div>
+
             </div>
         </div>
-    </section>
+        </section>
+        <!-- Botão Flutuante do WhatsApp -->
+        <a href="https://wa.me/5516999628815?text=Olá%20gostaria%20de%20atendimento%20pela%20central%20de%20vendas%20AF%20saúde!", class="whatsapp-float" target="_blank">
+            <span class="whatsapp-text">Fale Conosco</span>
+            <i class="fab fa-whatsapp"></i>
+        </a>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <h4>Antherus</h4>
-                    <p>Marketing Digital que gera resultados</p>
-                </div>
-                <div class="col-lg-4">
-                    <h4>Contato</h4>
-                    <p>
-                        <i class="fas fa-envelope"></i> contato@antherus.com<br>
-                        <i class="fas fa-phone"></i> (11) 9999-9999
-                    </p>
-                </div>
-                <div class="col-lg-4">
-                    <h4>Redes Sociais</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+        <section>
+            <footer>
+                <i class="fa fa-copyright" aria-hidden="true">Copyright</i>
+                <div class="item-footer">Desenvolvido por Antherus - Desenvolvimento Web</div>
+                <span ><i class="fab fa-whatsapp"></i></span>
+                <span>(16) 993379492</span>
+            </footer>
+        </section>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+    
 </body>
 </html>
