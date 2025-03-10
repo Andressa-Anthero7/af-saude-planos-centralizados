@@ -17,6 +17,12 @@
     <!-- SCRIPT JAVASCRIPT -->
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/counter.js"></script>
+    <style>
+        .btn-enviar-container{
+            position: relative;
+            top: -4em;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -30,8 +36,9 @@
     <section >
         <div class="header">
             <h1>AF Saúde</h1>
-            <h2>Encontramos a mehor opção em Planos de Saúde para sua familia ou empresa</h2>
+            <h2>Obrigada por Chegar até aqui!!<br>Em breve nosso time de consultores vai entrar em contato!!</h2>
         </div>
+        
         <div class="counter">
             <div class="stats-container">
                 <div class="stat-item">
@@ -67,41 +74,8 @@
         <button class="next" onclick="rotateCarousel(1)">&#10095;</button>
     </section>
 
-    <!-- FORMULÁRIO -->
-    <section>
-        <div class="form">
-            <h1>Preencha o formulário e garanta as melhores opções de planos de saúde direto no seu celular</h1>
-            <form method="POST" >
-                    <!-- CSRF_TOKEN -->
-                    <div class="form-field ">
-                        <label for="nome">Nome</label>
-                        <input type="text" id="nome" class="form-control">
-                        <small id="msg-erro-nome"></small>
-                    </div>
-                    <div class="form-field">
-                        <label for="whatsapp">Whatsapp</label>
-                        <input type="text" id="whatsapp" class="form-control">
-                        <small id="msg-erro-whatsapp">mensagem de erro</small>
-                    </div>
-                    <!-- Checkbox Aceitação de Termos -->
-                    <div class="form-field ">
-                        <label for="aceito-termos">
-                            <input type="checkbox" id="aceito-termos" name="aceito_termos" maxlength="12" disabled>
-                            <small class="text-center text-dark">*Obrigatório - </small>
-                            <small class="text-center text-dark text-justify">Ao enviar este formulário, você concorda com o tratamento dos seus dados pessoais nos termos da Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018) e conforme nossa Política de Privacidade. Utilizamos suas informações para entrar em contato e oferecer nossos serviços. Seus dados serão mantidos em sigilo e não serão compartilhados com terceiros sem sua autorização. Você pode solicitar a exclusão dos seus dados a qualquer momento.</small>
-                        </label>
-                        <br>
-                        <!-- Script do formulário -->
-                        <script type="text/javascript" src="js/script-form.js"></script>
-                    </div>
-                    <!-- BTN FORM -->
-                    <div class="form-field btn-enviar-container">
-                        <button class="btn-custom">Garanta sua cotação personalizada</button>
-                    </div>
-            </form>
-        </div>
-    </section>
-    <script type="text/javascript" src="js/script-carousel.js"></script>
+    
+    
 
     <!-- TEXTO PERSUASSIVO -->
     <section>
@@ -136,6 +110,6 @@
             </footer>
         </section>
 
-    
+        <script type="text/javascript" src="js/script-carousel.js"></script>
 </body>
 </html>
