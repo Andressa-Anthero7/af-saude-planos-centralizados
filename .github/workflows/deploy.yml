@@ -69,3 +69,4 @@ jobs:
             # Reinicia o Nginx para garantir que a configuração seja recarregada
             sudo systemctl restart nginx
           EOF
+          
