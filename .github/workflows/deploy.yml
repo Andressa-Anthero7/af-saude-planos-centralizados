@@ -1,0 +1,71 @@
+name: Deploy para DigitalOcean
+
+on:
+  push:
+    branches:
+      - dev  # Só dispara o deploy quando há push na branch "dev"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checar código
+        uses: actions/checkout@v3
+
+      - name: Configurar SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
+
+      - name: Deploy no Servidor
+        run: |
+          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
+            # Verifica se o repositório já foi clonado
+            if [ ! -d "/home/ubuntu/af-saude-planos-centralizados" ]; then
+              echo "Repositório não encontrado. Clonando..."
+              git clone https://github.com/Andressa-Anthero7/af-saude-planos-centralizados.git /home/ubuntu/af-saude-planos-centralizados
+              cd /home/ubuntu/af-saude-planos-centralizados
+
+              # Cria o ambiente virtual
+              python3 -m venv prod-venv
+              source /home/ubuntu/af-saude-planos-centralizados/prod-venv/bin/activate
+              echo "Ambiente virtual ativado"
+
+              # Instala as dependências
+              pip install -r requirements.txt
+            else
+              cd /home/ubuntu/af-saude-planos-centralizados
+              # Puxa as últimas atualizações da branch dev
+              git pull origin dev
+
+              # Ativa o ambiente virtual
+              source /home/ubuntu/af-saude-planos-centralizados/prod-venv/bin/activate
+            fi
+
+            # Aplica as migrações do banco de dados
+            python manage.py migrate
+
+            # Coleta os arquivos estáticos
+            python manage.py collectstatic --noinput
+
+            # Instala o Gunicorn se não estiver instalado
+            if ! command -v gunicorn &> /dev/null; then
+              echo "Gunicorn não encontrado, instalando..."
+              pip install gunicorn
+            fi
+
+            # Reinicia o Gunicorn
+            sudo systemctl restart gunicorn
+
+            # Instala o Nginx se não estiver instalado
+            if ! command -v nginx &> /dev/null; then
+              echo "Nginx não encontrado, instalando..."
+              sudo apt update
+              sudo apt install -y nginx
+            fi
+
+            # Reinicia o Nginx para garantir que a configuração seja recarregada
+            sudo systemctl restart nginx
+          EOF
