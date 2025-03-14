@@ -1,7 +1,6 @@
 let currentIndex = 0;
-const totalItems = 6;
+const totalItems = 11; // Atualizado para 11 itens
 const items = document.querySelectorAll('.carousel-item');
-
 
 function updateActiveItem() {
     items.forEach((item, index) => {
@@ -9,7 +8,7 @@ function updateActiveItem() {
         if (index === currentIndex) {
             item.classList.add('active');
         }
-        let rotation = ((index - currentIndex + totalItems) % totalItems) * 60;
+        let rotation = ((index - currentIndex + totalItems) % totalItems) * (360 / totalItems); 
         item.style.transform = `rotateY(${rotation}deg) translateZ(200px)`;
     });
 }
@@ -22,7 +21,6 @@ function rotateCarousel(direction) {
 function autoRotate() {
     rotateCarousel(1);
 }
-
 
 setInterval(autoRotate, 3000);
 updateActiveItem();
