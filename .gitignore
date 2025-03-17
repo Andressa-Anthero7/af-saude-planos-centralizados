@@ -17,7 +17,7 @@ media/
 
 
 # Virtualenv
-dev-a-venv/
+lp-cent-venv
 .env/
 
 
