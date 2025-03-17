@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-s&71@w2vgg+7*87ud+r1+7&qllr-o(fd0mux$eh*ph)bw0o(km
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['planosaudesc.com.br','www.planosaudesc.com.br']
+ALLOWED_HOSTS = ['*','planosaudesc.com.br','www.planosaudesc.com.br']
 
 
 # Application definition

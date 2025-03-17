@@ -5,6 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AF Saúde</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16871438964"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-16871438964');
+    </script>
+
     <!-- STYLE CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/style-index.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style-counter.css' %}">
@@ -80,14 +90,15 @@
             <h1>Preencha o formulário e garanta as melhores opções de planos de saúde direto no seu celular</h1>
             <form method="POST" >
                     <!-- CSRF_TOKEN -->
+                     {% csrf_token %}
                     <div class="form-field ">
                         <label for="nome">Nome</label>
-                        <input type="text" id="nome" class="form-control">
+                        <input type="text" id="nome" class="form-control" name="nome">
                         <small id="msg-erro-nome"></small>
                     </div>
                     <div class="form-field">
                         <label for="whatsapp">Whatsapp</label>
-                        <input type="text" id="whatsapp" class="form-control">
+                        <input type="text" id="whatsapp" class="form-control" maxlength="14" name="whatsapp">
                         <small id="msg-erro-whatsapp">mensagem de erro</small>
                     </div>
                     <!-- Checkbox Aceitação de Termos -->

@@ -5,6 +5,7 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('', views.index, name='index'),
     path('agradecimento/', views.agradecimento, name='agradecimento'),  # Corrigido o nome da URL
+    path('politica_privacidade/', views.politica_privacidade, name='politica_privacidade'),
     path('dashboard/', views.dashboard, name='dashboard'),  # Definição única para o dashboard
     path('status_leads/<int:pk>/', views.status_envelope_leads, name='status-leads'),
     path('accounts/login/', views.custom_login, name='login'),  # URL para login

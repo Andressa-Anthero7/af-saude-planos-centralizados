@@ -9,7 +9,7 @@ function updateActiveItem() {
             item.classList.add('active');
         }
         let rotation = ((index - currentIndex + totalItems) % totalItems) * (360 / totalItems); 
-        item.style.transform = `rotateY(${rotation}deg) translateZ(200px)`;
+        item.style.transform = `rotateY(${rotation}deg) translateZ(350px)`;
     });
 }
 

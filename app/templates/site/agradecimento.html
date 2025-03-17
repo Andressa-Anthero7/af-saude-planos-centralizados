@@ -1,9 +1,19 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AF Saúde</title>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-16871438964');
+
+        gtag('event', 'conversion', {'send_to': 'AW-16871438964/GjVHCKTusZ8aEPT09uw-'});
+    </script>
     <!-- STYLE CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/style-index.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style-counter.css' %}">
@@ -17,6 +27,13 @@
     <!-- SCRIPT JAVASCRIPT -->
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/counter.js' %}"></script>
+    <style>
+        .header{
+            display: block;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -25,52 +42,19 @@
             <img src="{% static 'img/logo.webp' %}"  width="100" height="100">
         </a>
     </nav>
-    <!-- HEADER -->
-    <section >
-        <div class="header">
-            <h1>AF Saúde</h1>
-            <h2>Obrigada por Chegar até aqui!!<br>Em breve nosso time de consultores vai entrar em contato!!</h2>
-        </div>
-        
-        <div class="counter">
-            <div class="stats-container">
-                <div class="stat-item">
-                    <i class="fas fa-plus"></i>
-                    <span class="stat-number" data-value="50">0</span>
-                    <span class="stat-label">Cidades Atendidas</span>
-                </div> 
-                <div class="stat-item">
-                    <i class="fas fa-plus"></i>
-                    <span class="stat-number" data-value="1200">0</span>
-                    <span class="stat-label">Clientes Atendidos</span>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-plus"></i>
-                    <span class="stat-number" data-value="10">0</span>
-                    <span class="stat-label">Anos de Experiência</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-     <!-- CARROUSSEL 3D -->
-    <section id="carousel3d" class="carousel-container">
-        <div class="carousel">
-            <div class="carousel-item" style="--i:0;"><img src="img/img-carroussel-flutuante-1.png" alt="Imagem 1"></div>
-            <div class="carousel-item" style="--i:1;"><img src="img/img-carroussel-flutuante-2.png" alt="Imagem 2"></div>
-            <div class="carousel-item" style="--i:2;"><img src="img/img-carroussel-flutuante-1.png"></div>
-            <div class="carousel-item" style="--i:3;"><img src="img/img-carroussel-flutuante-2.png"></div>
-            <div class="carousel-item" style="--i:4;"><img src="img/img-carroussel-flutuante-1.png"></div>
-            <div class="carousel-item" style="--i:5;"><img src="img/img-carroussel-flutuante-2.png"></div>
-        </div>
-        <button class="prev" onclick="rotateCarousel(-1)">&#10094;</button>
-        <button class="next" onclick="rotateCarousel(1)">&#10095;</button>
-    </section>
+    
 
     <!-- TEXTO PERSUASSIVO -->
     <section>
         <div id="descricao">
             <div class="componente-descricao" >
+                <h1>AF Saúde</h1>
+                <h2>Obrigada por Chegar até aqui!!<br>Em breve nosso time de consultores vai entrar em contato!!</h2>
+                <h3>Conheça mais sobre a AF Saúde</h3>
+                <div class="btn-custom">
+                    <div>Curta nossa página na</div>
+                    <span><i class="fab fa-facebook"></i></span>
+                </div>
                 <h1>Mais de 10 anos de experiência conectando você ao plano de saúde ideal!!</h1>
                 <p>A AF Saúde, já ajudamos mais de 1.000 clientes em todo o Brasil – desde famílias que buscam proteção e tranquilidade até pequenas e grandes empresas que querem oferecer o melhor benefício aos seus colaboradores.<br>Com nossa assessoria especializada, analisamos suas necessidades e encontramos o plano de saúde perfeito para você, garantindo custo-benefício, qualidade e segurança.<br>Preencha o formulário agora e conte com a nossa experiência para te guiar nessa escolha! 🚀💙</p>
             </div>
@@ -101,5 +85,14 @@
         </section>
 
         <script type="text/javascript" src="{% static 'js/script-carousel.js' %}"></script>
+
+        <section>
+            <footer>
+                <i class="fa fa-copyright" aria-hidden="true">Copyright</i>
+                <div class="item-footer">Desenvolvido por Antherus - Desenvolvimento Web</div>
+                <span ><i class="fab fa-whatsapp"></i></span>
+                <span>(16) 993379492</span>
+            </footer>
+        </section>
 </body>
 </html>

@@ -52,6 +52,9 @@ def index(request):
 def agradecimento(request):
     return render(request, 'site/agradecimento.html')
 
+def politica_privacidade(request):
+    return render(request,'site/politica-privacidade.html')
+
 @login_required
 def dashboard(request,user):
     leads = Leads.objects.all().order_by('-data_recebimento')
