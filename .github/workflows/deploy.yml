@@ -22,7 +22,7 @@ jobs:
       - name: Deploy no Servidor
         run: |
           ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
-            # Verifica se o repositório já foi clonado
+            #Verifica se o repositório já foi clonado
             if [ ! -d "/home/ubuntu/af-saude-planos-centralizados" ]; then
               echo "Repositório não encontrado. Clonando..."
               git clone https://github.com/Andressa-Anthero7/af-saude-planos-centralizados.git /home/ubuntu/af-saude-planos-centralizados
