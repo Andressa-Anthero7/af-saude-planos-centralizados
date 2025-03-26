@@ -27,7 +27,8 @@ def index(request):
         
         payload = {
             "messaging_product": "whatsapp",
-            "to": +5516993379492,  # Enviar para o depto de vendas
+            "to": +5516999628815,  # Enviar para o depto de vendas
+            
             "type": "text",
             "text": {
                 "body": f"📢 Novo Lead recebido!\n\nNome: {nome_leads}\nWhatsApp: {whats_app_leads}\n\nVerifique na Dashboard\n\nhttps://planosaudesc.com.br/accounts/login/adriana/dashboard."
