@@ -13,4 +13,5 @@ urlpatterns = [
     path('accounts/login/<str:user>/dashboard/', views.dashboard, name='user_dashboard'),  # Nome alterado para evitar conflito
     path('remover_lead/<int:pk>/',views.remover_lead, name='remover_lead'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    
 ]

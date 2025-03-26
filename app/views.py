@@ -1,53 +1,59 @@
 from django.shortcuts import render, redirect
 import requests
 from .models import Leads, Config_WhatsApp
-from datetime import datetime
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
+from django.conf import settings
+from django.utils.timezone import now
 
-
-# Create your views here.
 def index(request):
-    # Se for POST/REQUISIÇÃO DO FORM DA LP
     if request.method == 'POST':
         # Capturar os dados do formulário
-        nome_leads = request.POST.get('nome') 
+        nome_leads = request.POST.get('nome')
         whats_app_leads = request.POST.get('whatsapp')
-        recebido_em = datetime.now()
-        Leads.objects.create(nome_leads=nome_leads, whats_app_leads=whats_app_leads, data_recebimento=recebido_em)
+        recebido_em = now()
+
+        # Salvar no banco de dados
+        Leads.objects.create(
+            nome_leads=nome_leads,
+            whats_app_leads=whats_app_leads,
+            data_recebimento=recebido_em
+        )
+
+        # Configuração da API do WhatsApp
+        url = f"https://graph.facebook.com/v13.0/{settings.PHONE_NUMBER_ID}/messages"
         
-        # Montar a mensagem
-        message = f"Olá, Adriana! Você recebeu novo lead - Nome: {nome_leads} - WhatsApp: {whats_app_leads}<br>Acesse: www.afunimedsaocarlos.com.br/accounts/login/adriana/dashboard/"
-        
-        config_wa = Config_WhatsApp.objects.values('numero_whats_app', 'chave_api_whats_app')
-        print(config_wa)
-        for item in config_wa:
-            # Pegando os valores diretamente do dicionário
-            whats_app_receptor = item['numero_whats_app']
-            api_key = item['chave_api_whats_app']
-            print(f'receptor',whats_app_receptor)
-            print(f'api key',api_key)
-    
-        # URL da API do CallMeBot (o WhatsApp deve estar no formato internacional)
-        url = f'https://api.callmebot.com/whatsapp.php?phone=55{whats_app_receptor}&text={message}&apikey={api_key}'
+        payload = {
+            "messaging_product": "whatsapp",
+            "to": +5516993379492,  # Enviar para o depto de vendas
+            "type": "text",
+            "text": {
+                "body": f"📢 Novo Lead recebido!\n\nNome: {nome_leads}\nWhatsApp: {whats_app_leads}\n\nVerifique na Dashboard\n\nhttps://planosaudesc.com.br/accounts/login/adriana/dashboard."
+            }
+        }
 
+        headers = {
+            "Authorization": f"Bearer {settings.ACCESS_TOKEN}",
+            "Content-Type": "application/json"
+        }
 
-        # Enviar a mensagem via requisição GET
-        response = requests.get(url)
+        # Enviar mensagem pelo WhatsApp
+        response = requests.post(url, headers=headers, json=payload)
+        response_data = response.json()
 
-        # Verificar a resposta
+        # Verificar resposta
         if response.status_code == 200:
-            print("Mensagem enviada com sucesso!")
             return render(request, 'site/agradecimento.html')
         else:
-            print("Falha ao enviar a mensagem.")
-            print(f"Status code: {response.status_code}")
-            return render(request, 'site/agradecimento.html')
-    # SE NAO FOR POR É REQUISIÇAO PELO GET
-    else:
-        return render(request, 'site/index.html')
+            return JsonResponse(
+                {"message": "⚠️ Lead salvo, mas falha ao enviar mensagem",
+                 "error": response_data},
+                status=response.status_code
+            )
+
+    return render(request, 'site/index.html')
 
 def agradecimento(request):
     return render(request, 'site/agradecimento.html')

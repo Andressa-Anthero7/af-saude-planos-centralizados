@@ -17,8 +17,8 @@ media/
 
 
 # Virtualenv
-lp-cent-venv
-.env/
+lp-cent-venv/
+
 
 
 # IDEs

@@ -11,9 +11,24 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Inicializa o django-environ
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))  # Carrega o .env
+
+# Configurações do WhatsApp (caso precise em views)
+PHONE_NUMBER_ID = env('PHONE_NUMBER_ID', default=None)
+ACCESS_TOKEN = env('ACCESS_TOKEN', default=None)
+WHATSAPP_RECIPIENT = env('WHATSAPP_RECIPIENT', default=None)
+
+
+# Inicializar django-environ
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))  # Lê as variáveis do .env
 
 
 # Quick-start development settings - unsuitable for production
@@ -126,3 +141,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+

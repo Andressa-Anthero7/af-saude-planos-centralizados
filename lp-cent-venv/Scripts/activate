@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\andre\vscode\lp-centralizada\lp-cent-venv"
+VIRTUAL_ENV="C:\Users\andre\vscode\af-saude-planos-centralizados\lp-cent-venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
