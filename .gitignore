@@ -18,6 +18,7 @@ media/
 
 # Virtualenv
 lp-cent-venv/
+.env
 
 
 
