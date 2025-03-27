@@ -111,11 +111,18 @@
                         <small id="msg-erro-whatsapp">mensagem de erro</small>
                     </div>
                     <!-- Checkbox Aceitação de Termos -->
-                    <div class="form-field ">
+                    <div class="form-field" >
                         <label for="aceito-termos">
                             <input type="checkbox" id="aceito-termos" name="aceito_termos" maxlength="12" disabled>
                             <small class="text-center text-dark">*Obrigatório - </small>
-                            <small class="text-center text-dark text-justify">Ao enviar este formulário, você concorda com o tratamento dos seus dados pessoais nos termos da Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018) e conforme nossa Política de Privacidade. Utilizamos suas informações para entrar em contato e oferecer nossos serviços. Seus dados serão mantidos em sigilo e não serão compartilhados com terceiros sem sua autorização. Você pode solicitar a exclusão dos seus dados a qualquer momento.</small>
+                            <small class="text-center text-dark text-justify">
+                                Ao enviar este formulário, você concorda com a nossa
+                                <a class="destaca_link" href="{% url 'politica_privacidade' %}" target="_blank">
+                                    <em>política privacidade</em>
+                                </a>
+                                tratamento dos seus dados pessoais nos termos da Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018) e conforme nossa Política de Privacidade. Utilizamos suas informações para entrar em contato e oferecer nossos serviços. Seus dados serão mantidos em sigilo e não serão compartilhados com terceiros sem sua autorização. Você pode solicitar a <a class="destaca_link" href="https://wa.me/5516999628815?text=Gostaria%20de%20solicitar%20minha%20exclus%C3%A3o%20da%20base%20de%20dados" target="_blank">exclusão dos seus dados</a> a qualquer momento.
+                                
+                            </small>
                         </label>
                         <br>
                         <!-- Script do formulário -->

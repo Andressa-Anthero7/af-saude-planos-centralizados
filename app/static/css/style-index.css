@@ -287,6 +287,14 @@ small {
     max-width: 100%; /* Para garantir que a imagem não ultrapasse o container */
 }
 
+/* link da politica de privacidade e do cancelamento da inscrição */
+.destaca_link{
+    font-weight: 800;
+    color: black;
+    text-decoration: underline;
+    font-size: 1.2em;
+}
+
 footer{
     display: block;
     justify-content: center;
